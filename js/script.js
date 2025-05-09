@@ -20,6 +20,10 @@ startBtn.addEventListener("click", starttoNextPage);
 
 let counterIndex = 0;
 
+// 🔁 Load first question and set up answer click events
+displayQuestion(counterIndex);
+checkAnswer(); 
+
 // 🧠 Render question and options on the screen
 function displayQuestion(index) {
     questionText.textContent = questions[index].question;
