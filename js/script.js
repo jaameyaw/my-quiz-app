@@ -36,3 +36,44 @@ function displayQuestion(index) {
     }
       
 }
+
+// ✅ Handle user answer selection and show feedback
+function checkAnswer() {
+    for (i = 0; i < answerOptions.length; i++) {
+        answerOptions[i].addEventListener("click", function handleClick() {
+            let selectedText = this.querySelector('p').textContent;
+            let span = this.querySelector('span');
+
+            // 🔒 Disable further clicks
+            for (j = 0; j < answerOptions.length; j++) {
+                answerOptions[j].style.pointerEvents = 'none';
+            }
+
+            // 🟢 If correct
+            if (selectedText === questions[counterIndex].answer) {
+                this.classList.add('correct');
+                span.textContent = 'check_circle';
+                span.style.display = 'inline';
+            } else {
+                // 🔴 If incorrect, show selected as wrong and find correct
+                this.classList.add('incorrect');
+                span.textContent = 'cancel';
+                span.style.display = 'inline';
+
+                for (k = 0; k < answerOptions.length; k++) {
+                    let correctAns = answerOptions[k].querySelector('p').textContent;
+                    let correctSpan = answerOptions[k].querySelector('span');
+                    if (correctAns === questions[counterIndex].answer) {
+                        answerOptions[k].classList.add('correct');
+                        correctSpan.textContent = 'check_circle';
+                        correctSpan.style.display = 'inline';
+                        break;
+                    }
+                }
+            }
+
+            // 🔁 Prevent multiple event bindings
+            this.removeEventListener("click", handleClick);
+        });
+    }
+}
