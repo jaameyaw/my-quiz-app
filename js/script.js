@@ -17,3 +17,22 @@ function starttoNextPage() {
 }
 
 startBtn.addEventListener("click", starttoNextPage);
+
+let counterIndex = 0;
+
+// 🧠 Render question and options on the screen
+function displayQuestion(index) {
+    questionText.textContent = questions[index].question;
+
+    for (i = 0; i<answerOptions.length; i++) {
+        let p = answerOptions[i].querySelector('p');
+        let span = answerOptions[i].querySelector('span');
+        p.textContent = questions[index].options[i];
+
+         // Reset visual state
+        answerOptions[i].classList.remove('correct', 'incorrect');
+        span.style.display = 'none';
+        answerOptions[i].style.pointerEvents = 'auto';
+    }
+      
+}
