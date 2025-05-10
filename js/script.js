@@ -102,3 +102,11 @@ nextQuestion.addEventListener("click", function () {
         displayResults();
     }
 });
+
+// allow the user to try again
+tryAgainBtn.addEventListener ("click", function (){
+    resultContainer.style.display = 'none';
+    configContainer.style.display = 'block';
+    counterIndex = 0;
+    correctCounter = 0;        
+});
