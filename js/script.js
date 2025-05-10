@@ -10,7 +10,7 @@ let questionText = document.querySelector('.question-text');
 let answerOptions = document.querySelectorAll('.answer-option');
 let nextQuestion = document.querySelector('.next-question-btn')
 
-// 👉 Transition from start screen to quiz
+// Transition from start screen to quiz
 function starttoNextPage() {
     configContainer.style.display = 'none';
     quizContainer.style.display = 'block';
@@ -20,11 +20,11 @@ startBtn.addEventListener("click", starttoNextPage);
 
 let counterIndex = 0;
 
-// 🔁 Load first question and set up answer click events
+// Load first question and set up answer click events
 displayQuestion(counterIndex);
 checkAnswer(); 
 
-// 🧠 Render question and options on the screen
+// Render question and options on the screen
 function displayQuestion(index) {
     questionText.textContent = questions[index].question;
 
@@ -41,25 +41,25 @@ function displayQuestion(index) {
       
 }
 
-// ✅ Handle user answer selection and show feedback
+// Handle user answer selection and show feedback
 function checkAnswer() {
     for (i = 0; i < answerOptions.length; i++) {
         answerOptions[i].addEventListener("click", function handleClick() {
             let selectedText = this.querySelector('p').textContent;
             let span = this.querySelector('span');
 
-            // 🔒 Disable further clicks
+            //Disable further clicks
             for (j = 0; j < answerOptions.length; j++) {
                 answerOptions[j].style.pointerEvents = 'none';
             }
 
-            // 🟢 If correct
+            // If correct
             if (selectedText === questions[counterIndex].answer) {
                 this.classList.add('correct');
                 span.textContent = 'check_circle';
                 span.style.display = 'inline';
             } else {
-                // 🔴 If incorrect, show selected as wrong and find correct
+                // If incorrect, show selected as wrong and find correct
                 this.classList.add('incorrect');
                 span.textContent = 'cancel';
                 span.style.display = 'inline';
@@ -76,8 +76,19 @@ function checkAnswer() {
                 }
             }
 
-            // 🔁 Prevent multiple event bindings
+            // Prevent multiple event bindings
             this.removeEventListener("click", handleClick);
         });
     }
 }
+
+
+// Move to next question and update status
+nextQuestion.addEventListener("click", function () {
+    counterIndex++;
+    if (counterIndex < questions.length) {
+        displayQuestion(counterIndex);
+        checkAnswer();
+        updateStatus();
+    }
+});
