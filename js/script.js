@@ -98,5 +98,7 @@ nextQuestion.addEventListener("click", function () {
         displayQuestion(counterIndex);
         checkAnswer();
         updateStatus();
+    } else {
+        displayResults();
     }
 });
