@@ -15,14 +15,13 @@
         <div class="config-option">
             <h4 class="option-title">No. of Questions</h4>
             <div class="questions-options">
-                <button class="question-option">5</button>
-                <button class="question-option active">10</button>
+                <button class="question-option active">5</button>
+                <button class="question-option">10</button>
                 <button class="question-option">15</button>
             </div>
         </div>
-        
+    
         <button class="start-quiz-btn">Start Quiz</button>
-         
     </div>
     
     <!-- Quiz Container-->
@@ -36,33 +35,29 @@
 
             <ul class="answer-options">
                 <li class="answer-option">
-                    <p>Early morning</p>
-                </li>
-            </ul>
-
-            <ul class="answer-options">
+                    <p></p>
+                    <span class="material-symbols-outlined"></span>
+                </li>   
+                
                 <li class="answer-option">
-                    <p>Afternoon</p>
-                </li>
-            </ul>
+                    <p></p>
+                    <span class="material-symbols-outlined"></span>
+                </li> 
 
-            <ul class="answer-options">
-                <li class="answer-option incorrect">
-                    <p>Evening</p>
+                <li class="answer-option">
+                    <p></p>
                     <span class="material-symbols-outlined">cancel</span>
-                </li>
-            </ul>
+                </li> 
 
-            <ul class="answer-options">
-                <li class="answer-option correct">
-                    <p>Midnight</p>
+                <li class="answer-option">
+                    <p></p>
                     <span class="material-symbols-outlined">check_circle</span>
-                </li>
+                </li> 
             </ul>
         </div>
 
         <div class="quiz-footer">
-            <p class="question-status"><b>2</b> of <b>10</b> Questions</p>
+            <p class="question-status"><b>1</b> of <b>5</b> Questions</p>
             <button class="next-question-btn">
                 Next <span class="material-symbols-outlined">arrow_forward</span>
             </button>
@@ -74,13 +69,12 @@
     <div class="result-container">
         <img src="img/quiz-over.png" alt="congratulations emoji" class="Result-img">
         <h2 class="result-title">Quiz Completed!</h2>
-        <p class="result-message">You answered <b>3</b> out of <b>5</b>
-        questions correctly. Great effort</p>
+        <p class="result-message"><b>3</b> out of <b>5</b></p>
         <button class="try-again-btn">Try Again</button>
     </div>
     
 
-
+    <script src="js/questions.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
