@@ -75,6 +75,21 @@ for (i = 0; i < answerOptions.length; i++) {
     });
 }
 
+// display results to the user
+function displayResults() {
+    resultContainer.style.display = 'block';
+    quizContainer.style.display = 'none';
+    let resultsMsg = resultContainer.querySelector('p'); 
+
+    if (correctCounter === 5) {
+        resultsMsg.innerHTML = `🏆<b>${correctCounter}</b> out of <b>${questions.length}</b>. Ah, you be my twin or what? 😂`
+    } else if (correctCounter < 5 && correctCounter > 2) {
+        resultsMsg.innerHTML = `👏 <b>${correctCounter}</b> out of <b>${questions.length}</b>. Not bad! You know me quite well.`
+    } else {
+        resultsMsg.innerHTML = `<b>${correctCounter}</b> out of <b>${questions.length}</b>. Ei! Do you even know me at all? 😂`
+    } 
+}
+
 
 // Move to next question and update status
 nextQuestion.addEventListener("click", function () {
