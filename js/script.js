@@ -9,6 +9,7 @@ let startBtn = document.querySelector('.start-quiz-btn');
 let questionText = document.querySelector('.question-text');
 let answerOptions = document.querySelectorAll('.answer-option');
 let nextQuestion = document.querySelector('.next-question-btn')
+let userHasClicked = false;
 
 // Transition from start screen to quiz
 function starttoNextPage() {
@@ -19,6 +20,15 @@ function starttoNextPage() {
 }
 
 startBtn.addEventListener("click", starttoNextPage);
+
+
+// check whether user has clicked an option or not.
+function checkUserClicked() {
+    if (userHasClicked) {
+        nextQuestion.disabled = false;
+    }
+}
+
 
 
 // Render question and options on the screen
@@ -36,10 +46,16 @@ function displayQuestion(index) {
         answerOptions[i].style.pointerEvents = 'auto';
     }
       
+    }  
+    
+    // Reset click tracking and disable "Next" button
+    userHasClicked = false;
+    nextQuestion.disabled = true;
 }
 
+
 // Handle user answer selection and show feedback
-for (i = 0; i < answerOptions.length; i++) {
+for (let i = 0; i < answerOptions.length; i++) {
     answerOptions[i].addEventListener("click", function () {
         let selectedText = this.querySelector('p').textContent;
         let span = this.querySelector('span');
@@ -71,9 +87,12 @@ for (i = 0; i < answerOptions.length; i++) {
                     break;
                 }
             }
-        }
+        } 
+        
+        hasUserClicked(); 
     });
 }
+
 
 // display results to the user
 function displayResults() {
@@ -109,4 +128,5 @@ tryAgainBtn.addEventListener ("click", function (){
     configContainer.style.display = 'block';
     counterIndex = 0;
     correctCounter = 0;        
+    nextQuestion.disabled = true;
 });
