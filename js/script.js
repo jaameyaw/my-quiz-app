@@ -10,6 +10,19 @@ let questionText = document.querySelector('.question-text');
 let answerOptions = document.querySelectorAll('.answer-option');
 let nextQuestion = document.querySelector('.next-question-btn')
 let userHasClicked = false;
+// Shuffles the questions array randomly using the Fisher-Yates algorithm.
+function fisherYatesShuffle(questionsArr) {
+
+  for (i = questionsArr.length - 1; i > 0; i--) {
+
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [questionsArr[i], questionsArr[j]] = [questionsArr[j], questionsArr[i]];    
+  }
+}
+
+// Call the function to shuffle the questions array.
+fisherYatesShuffle(questions);
 
 // Transition from start screen to quiz
 function starttoNextPage() {
@@ -129,4 +142,5 @@ tryAgainBtn.addEventListener ("click", function (){
     counterIndex = 0;
     correctCounter = 0;        
     nextQuestion.disabled = true;
+    fisherYatesShuffle(questions)
 });
