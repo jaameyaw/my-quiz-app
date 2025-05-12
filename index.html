@@ -63,9 +63,15 @@
 
         <div class="quiz-footer">
             <p class="question-status"><b>1</b> of <b>5</b> Questions</p>
-            <button class="next-question-btn">
+
+            <div class="nextBtn-wrapper">
+                <button class="next-question-btn">
                 Next <span class="material-symbols-outlined">arrow_forward</span>
-            </button>
+                </button>
+                <div id="next-tooltip" class="next-tooltip">Please select an answer</div>
+                <!-- Fake Disabled Button Using Overlay -->
+                <div id= "next-blocker" class="next-click-blocker"></div>
+            </div>
         </div>
 
     </div>
