@@ -2,6 +2,9 @@
 
 // storing html elements into variables.
 let configContainer = document.querySelector('.config-container');
+let startWrapper = document.querySelector('.start-wrapper');
+let startBlocker = document.querySelector('#start-blocker');
+let tooltip = document.querySelector('#tooltip');
 let quizContainer = document.querySelector('.quiz-container');
 let resultContainer = document.querySelector('.result-container');
 let questionOption = document.querySelectorAll('.question-option');
@@ -34,7 +37,18 @@ function starttoNextPage() {
 }
 
 startBtn.addEventListener("click", starttoNextPage);
+// Intercept click if blocked
+startBlocker.addEventListener("click", function() {
+    tooltip.style.display = 'block';
+    setTimeout(() => {
+        tooltip.style.display = 'none';
+    }, 2000);
+});
 
+
+function enableStartButton() {
+    startBlocker.style.display = 'none';
+}
 
 questionOption.forEach (button => {
     button.addEventListener("click", function (){
@@ -54,6 +68,7 @@ questionOption.forEach (button => {
             selectedQuestions = questions.slice(0);
             button.classList.add ('active');
         }
+        enableStartButton();
     })
 })
 
@@ -174,6 +189,7 @@ tryAgainBtn.addEventListener ("click", function (){
     correctCounter = 0;        
     nextQuestion.disabled = true;
     fisherYatesShuffle(questions)
+    startBlocker.style.display = 'block';
     questionOption.forEach(btn => {
         btn.classList.remove('active');
     });      
