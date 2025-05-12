@@ -35,6 +35,28 @@ function starttoNextPage() {
 startBtn.addEventListener("click", starttoNextPage);
 
 
+questionOption.forEach (button => {
+    button.addEventListener("click", function (){
+        let selectedOption = button.textContent;
+
+        questionOption.forEach(btn => {
+            btn.classList.remove('active');
+        });    
+        
+        if (selectedOption === '5') {
+            selectedQuestions = questions.slice(0, 5);
+            button.classList.add ('active');
+        } else if (selectedOption === '10') {
+            selectedQuestions = questions.slice(0, 10);
+            button.classList.add ('active');
+        } else {
+            selectedQuestions = questions.slice(0);
+            button.classList.add ('active');
+        }
+    })
+})
+
+
 // check whether user has clicked an option or not.
 function checkUserClicked() {
     if (userHasClicked) {
@@ -143,4 +165,7 @@ tryAgainBtn.addEventListener ("click", function (){
     correctCounter = 0;        
     nextQuestion.disabled = true;
     fisherYatesShuffle(questions)
+    questionOption.forEach(btn => {
+        btn.classList.remove('active');
+    });      
 });
