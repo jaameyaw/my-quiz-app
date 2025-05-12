@@ -135,14 +135,21 @@ function displayResults() {
     resultContainer.style.display = 'block';
     quizContainer.style.display = 'none';
     let resultsMsg = resultContainer.querySelector('p'); 
+    let score = correctCounter / selectedQuestions.length;
 
-    if (correctCounter === 5) {
-        resultsMsg.innerHTML = `🏆<b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Ah, you be my twin or what? 😂`
-    } else if (correctCounter < 5 && correctCounter > 2) {
-        resultsMsg.innerHTML = `👏 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Not bad! You know me quite well.`
+    if (score === 1) {
+        // Perfect score
+        resultsMsg.innerHTML = `🔥 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. 100%! You’re basically me 😂`;
+    } else if (score === 0) {
+        // No correct answers
+        resultsMsg.innerHTML = `😅 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Ei! You no know me kraa 😭`;
+    } else if (score >= 0.8) {
+        resultsMsg.innerHTML = `🏆 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Ah, you be my twin or what? 😂`;
+    } else if (score >= 0.5) {
+        resultsMsg.innerHTML = `👏 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Not bad! You know me quite well.`;
     } else {
-        resultsMsg.innerHTML = `<b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Ei! Do you even know me at all? 😂`
-    } 
+        resultsMsg.innerHTML = `🤔 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Hmm... do you even know me at all? 😂`;
+    }
 }
 
 
