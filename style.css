@@ -101,9 +101,7 @@ body {
     transition: background 0.3s ease;
 }
 
-.config-container .start-quiz-btn {
-    margin-top: 30px;
-}
+
 
 .config-container .start-quiz-btn:hover,
 .quiz-footer .next-question-btn:hover,
@@ -114,6 +112,7 @@ body {
 .start-wrapper{
     position: relative;
     display: inline-block;
+    margin-top: 30px;
 }
 
 #tooltip {
@@ -239,7 +238,7 @@ body {
 
 .quiz-footer .next-question-btn {
     display: inline-flex;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
     padding: 9px 17px;
 }
