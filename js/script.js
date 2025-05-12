@@ -138,17 +138,18 @@ function displayResults() {
     let score = correctCounter / selectedQuestions.length;
 
     if (score === 1) {
-        // Perfect score
-        resultsMsg.innerHTML = `🔥 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. 100%! You’re basically me 😂`;
+        resultsMsg.innerHTML = `🔥 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. 100%?!  You’re literally my clone! 😍`;
     } else if (score === 0) {
         // No correct answers
         resultsMsg.innerHTML = `😅 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Ei! You no know me kraa 😭`;
     } else if (score >= 0.8) {
-        resultsMsg.innerHTML = `🏆 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Ah, you be my twin or what? 😂`;
-    } else if (score >= 0.5) {
-        resultsMsg.innerHTML = `👏 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Not bad! You know me quite well.`;
+        resultsMsg.innerHTML = `🏆 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. You really know me! I’m impressed. 🙌🏽`;
+    } else if (score >= 0.6) {
+        resultsMsg.innerHTML = `👏 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Not bad! You know me quite well. 😊`;
+    } else if (score >= 0.4) {
+        resultsMsg.innerHTML = `🤔 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Hmm... We definitely need to hang out more! 😉`;
     } else {
-        resultsMsg.innerHTML = `🤔 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Hmm... do you even know me at all? 😂`;
+        resultsMsg.innerHTML = `😬 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Wow... are we even friends? 😂`;
     }
 }
 
