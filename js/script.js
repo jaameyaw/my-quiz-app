@@ -125,7 +125,7 @@ for (let i = 0; i < answerOptions.length; i++) {
             }
         } 
         
-        hasUserClicked(); 
+        checkUserClicked(); 
     });
 }
 
