@@ -13,6 +13,7 @@ let questionText = document.querySelector('.question-text');
 let answerOptions = document.querySelectorAll('.answer-option');
 let nextQuestion = document.querySelector('.next-question-btn');
 let nextBlocker = document.querySelector('#next-blocker');
+let questionCounter = 0;
 let selectedQuestions;
 // Shuffles the questions array randomly using the Fisher-Yates algorithm.
 function fisherYatesShuffle(questionsArr) {
@@ -84,7 +85,9 @@ questionOption.forEach (button => {
 
 // Render question and options on the screen
 function displayQuestion(index) {
-    questionText.textContent = selectedQuestions[index].question;
+    questionCounter++
+    questionText.textContent = `${questionCounter}. ${selectedQuestions[index].question}`;
+
 
     for (i = 0; i<answerOptions.length; i++) {
         let p = answerOptions[i].querySelector('p');
@@ -199,6 +202,7 @@ tryAgainBtn.addEventListener ("click", function (){
     nextQuestion.disabled = true;
     fisherYatesShuffle(questions)
     startBlocker.style.display = 'block';
+    questionCounter = 0;
     questionOption.forEach(btn => {
         btn.classList.remove('active');
     });      
