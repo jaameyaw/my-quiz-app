@@ -11,8 +11,8 @@ let questionOption = document.querySelectorAll('.question-option');
 let startBtn = document.querySelector('.start-quiz-btn');
 let questionText = document.querySelector('.question-text');
 let answerOptions = document.querySelectorAll('.answer-option');
-let nextQuestion = document.querySelector('.next-question-btn')
-let userHasClicked = false;
+let nextQuestion = document.querySelector('.next-question-btn');
+let nextBlocker = document.querySelector('#next-blocker');
 let selectedQuestions;
 // Shuffles the questions array randomly using the Fisher-Yates algorithm.
 function fisherYatesShuffle(questionsArr) {
@@ -48,6 +48,14 @@ startBlocker.addEventListener("click", function() {
 
 function enableStartButton() {
     startBlocker.style.display = 'none';
+// When question count is selected, remove the blocker
+function enableButton(blockerName) {
+    blockerName.style.display = 'none';
+}
+
+// add disable overlay when the question count/option is not selected
+function disableButton(NameOfBlocker) {
+    NameOfBlocker.style.display = 'block';
 }
 
 questionOption.forEach (button => {
@@ -73,14 +81,6 @@ questionOption.forEach (button => {
 })
 
 
-// check whether user has clicked an option or not.
-function checkUserClicked() {
-    if (userHasClicked) {
-        nextQuestion.disabled = false;
-    }
-}
-
-
 
 // Render question and options on the screen
 function displayQuestion(index) {
@@ -99,9 +99,8 @@ function displayQuestion(index) {
       
     }  
     
-    // Reset click tracking and disable "Next" button
-    userHasClicked = false;
-    nextQuestion.disabled = true;
+    disableButton(nextBlocker);
+
 }
 
 
@@ -143,6 +142,16 @@ for (let i = 0; i < answerOptions.length; i++) {
         checkUserClicked(); 
     });
 }
+
+// Fake Disabled Button Using Overlay and display tooltip
+nextBlocker.addEventListener("click", function() {
+    let nextBtnTooltip = document.querySelector('.next-tooltip');
+    nextBtnTooltip.style.display = 'block';
+    setTimeout(() => {
+        nextBtnTooltip.style.display = 'none';
+    }, 2000);
+});
+
 
 
 // display results to the user
