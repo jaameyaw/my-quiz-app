@@ -204,3 +204,28 @@ tryAgainBtn.addEventListener ("click", function (){
         btn.classList.remove('active');
     });      
 });
+// handling the keyboard keys (Enter)
+document.addEventListener('keydown', function (e) {
+    // === START QUIZ: Enter on config screen ===
+    if (e.key === 'Enter' && configContainer.style.display !== 'none') {
+        if (startBlocker.style.display === 'none') {
+            startQuiz();
+        } else {
+            fakeDisableBtn(); // show tooltip if not ready
+        }
+    }
+
+    // === NEXT QUESTION: Enter on quiz screen ===
+    if (e.key === 'Enter' && quizContainer.style.display === 'block') {
+        if (nextBlocker.style.display === 'none') {
+            nextQuestion.click();
+        } else {
+            let nextBtnTooltip = document.querySelector('.next-tooltip');
+            nextBtnTooltip.style.display = 'block';
+            setTimeout(() => {
+                nextBtnTooltip.style.display = 'none';
+            }, 2000);
+        }
+    }
+});
+
