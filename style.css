@@ -86,6 +86,16 @@ body {
     flex: 1 1 5%;
 }
 
+/* mobile friendly */
+.config-container,
+.quiz-container,
+.result-container {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+
 
 .config-container .start-quiz-btn,
 .quiz-footer .next-question-btn,
