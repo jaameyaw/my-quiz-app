@@ -91,60 +91,57 @@ function displayQuestion(index) {
 
     for (i = 0; i<answerOptions.length; i++) {
         let p = answerOptions[i].querySelector('p');
-        let span = answerOptions[i].querySelector('span');
+        let icon = answerOptions[i].querySelector('i');
         p.textContent = selectedQuestions[index].options[i];
 
          // Reset visual state
         answerOptions[i].classList.remove('correct', 'incorrect');
-        span.style.display = 'none';
+        icon.style.display = 'none';
         answerOptions[i].style.pointerEvents = 'auto';
-    }
-      
     }  
     
     disableButton(nextBlocker);
 
 }
 
-
 // Handle user answer selection and show feedback
 for (let i = 0; i < answerOptions.length; i++) {
     answerOptions[i].addEventListener("click", function () {
-        let selectedText = this.querySelector('p').textContent;
-        let span = this.querySelector('span');
+        let selectedText = this.querySelector('p').textContent.trim();
+        let icon = this.querySelector('i');
 
-        //Disable further clicks
-        for (j = 0; j < answerOptions.length; j++) {
+        // Disable all answer options after a selection
+        for (let j = 0; j < answerOptions.length; j++) {
             answerOptions[j].style.pointerEvents = 'none';
         }
 
-        // If correct
-        this.classList.add('correct');
-        span.textContent = 'check_circle';
-        span.style.display = 'inline';
-        correctCounter ++;
+        // Check if selected answer is correct
         if (selectedText === selectedQuestions[counterIndex].answer) {
+            this.classList.add('correct');
+            icon.style.display = 'inline';
+            icon.classList.replace('fa-circle-xmark','fa-circle-check' );
         } else {
-            // If incorrect, show selected as wrong and find correct
             this.classList.add('incorrect');
-            span.textContent = 'cancel';
-            span.style.display = 'inline';
+            icon.style.display = 'inline';
+            icon.classList.replace('fa-circle-check','fa-circle-xmark');
 
-            for (k = 0; k < answerOptions.length; k++) {
-                let correctAns = answerOptions[k].querySelector('p').textContent;
-                let correctSpan = answerOptions[k].querySelector('span');
-                if (correctAns === selectedQuestions[counterIndex].answer) {
+            // Show correct answer
+            for (let k = 0; k < answerOptions.length; k++) {
+                let correctText = answerOptions[k].querySelector('p').textContent.trim();
+                let correctIcon = answerOptions[k].querySelector('i');
+                if (correctText === selectedQuestions[counterIndex].answer) {
                     answerOptions[k].classList.add('correct');
-                    correctSpan.textContent = 'check_circle';
-                    correctSpan.style.display = 'inline';
+                    correctIcon.style.display = 'inline';
+                    correctIcon.classList.replace('fa-circle-xmark','fa-circle-check' );
                     break;
                 }
             }
-        } 
-        
-        checkUserClicked(); 
+        }
+
+        enableButton(nextBlocker);
     });
 }
+
 
 // Fake Disabled Button Using Overlay and display tooltip
 nextBlocker.addEventListener("click", function() {
