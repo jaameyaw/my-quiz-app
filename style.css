@@ -198,10 +198,10 @@ body {
     transition: 0.3s ease;
 }
 
-.answer-option span {
-    display: none;
+.answer-option i {
     flex-shrink: 0;
     margin: -4px -3px -4px 12px;
+    font-size: 22px;
 }
 
 
