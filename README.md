@@ -1,2 +1,2 @@
 # my quiz app
- A playful quiz app built with vanilla JavaScript, where users can choose question length and enable a flirty mode. I built this to practice DOM manipulation, filtering arrays, and building engaging user interfaces.
+A customizable quiz app built with vanilla JavaScript. Users can choose how many questions they want to attempt, and immediate visual feedback is provided after each answer using Font Awesome icons. I built this to sharpen my skills in DOM manipulation, working with arrays, and creating accessible, interactive UIs. Key features include keyboard-accessible controls (e.g., using Enter to start or proceed), dynamic answer checking with real-time UI updates, and prevention of multiple selections per question.
