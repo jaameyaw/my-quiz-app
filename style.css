@@ -125,12 +125,12 @@ body {
     margin-top: 30px;
 }
 
-#tooltip {
+.tooltip {
   position: absolute;
-  top: 110%; /* Just below the button */
+  top: 110%; 
   left: 50%;
   transform: translateX(-50%);
-  background-color: #f44336; /* red */
+  background-color: #f44336; 
   color: white;
   padding: 6px 10px;
   display: none;
@@ -260,10 +260,10 @@ body {
 
 .next-tooltip {
     position: absolute;
-    top: 110%; /* Just below the button */
+    top: 110%; 
     left: 50%;
     transform: translateX(-50%);
-    background-color: #f44336; /* red */
+    background-color: #f44336; 
     color: white;
     padding: 6px 10px;
     display: none;
