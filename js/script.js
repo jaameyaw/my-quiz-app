@@ -13,6 +13,7 @@ let questionText = document.querySelector('.question-text');
 let answerOptions = document.querySelectorAll('.answer-option');
 let nextQuestion = document.querySelector('.next-question-btn');
 let nextBlocker = document.querySelector('#next-blocker');
+let aboutAuthor = document.querySelector('.about-author');
 let questionCounter = 0;
 let selectedQuestions;
 // Shuffles the questions array randomly using the Fisher-Yates algorithm.
@@ -33,6 +34,7 @@ fisherYatesShuffle(questions);
 function starttoNextPage() {
     configContainer.style.display = 'none';
     quizContainer.style.display = 'block';
+    aboutAuthor.style.display = 'none';
     displayQuestion(counterIndex);
     updateStatus();
 }
@@ -194,6 +196,7 @@ nextQuestion.addEventListener("click", function () {
 tryAgainBtn.addEventListener ("click", function (){
     resultContainer.style.display = 'none';
     configContainer.style.display = 'block';
+    aboutAuthor.style.display = 'block';
     counterIndex = 0;
     correctCounter = 0;        
     nextQuestion.disabled = true;
