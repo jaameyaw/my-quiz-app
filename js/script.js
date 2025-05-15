@@ -209,7 +209,7 @@ tryAgainBtn.addEventListener ("click", function (){
 });
 // handling the keyboard keys (Enter)
 document.addEventListener('keydown', function (e) {
-    // === START QUIZ: Enter on config screen ===
+    // START QUIZ: Enter on config screen
     if (e.key === 'Enter' && configContainer.style.display !== 'none') {
         if (startBlocker.style.display === 'none') {
             startQuiz();
@@ -218,7 +218,7 @@ document.addEventListener('keydown', function (e) {
         }
     }
 
-    // === NEXT QUESTION: Enter on quiz screen ===
+    // NEXT QUESTION: Enter on quiz screen
     if (e.key === 'Enter' && quizContainer.style.display === 'block') {
         if (nextBlocker.style.display === 'none') {
             nextQuestion.click();
