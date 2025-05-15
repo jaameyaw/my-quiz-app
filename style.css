@@ -320,3 +320,35 @@ body {
     margin-top: 30px;
     padding: 12px 20px;
 }
+
+.about-author {
+  margin-top: 3rem;
+  text-align: center;
+  padding: 1rem;
+  color: #f2f2f2; 
+}
+
+.author-socials {
+  margin-bottom: 0.5rem;
+}
+
+.author-socials a {
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  color: #ddd; 
+  transition: color 0.3s ease;
+}
+
+.author-socials a:hover {
+  color: #fff; 
+}
+
+.author-name p {
+  font-size: 0.95rem;
+  padding-top: 5px;
+  color: #e0e0e0; 
+}
+
+.author-name p:hover {
+    color: #fff;
+}
