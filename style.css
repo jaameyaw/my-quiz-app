@@ -8,13 +8,21 @@
 }
 
 body {
-    display: flex;
-    padding: 15px;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
     background: #5145BA;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem; 
 }
+
+.main-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 1rem;
+}
+
 
 :where(.config-container, .quiz-container, .result-container) {
     /* display: none; */
