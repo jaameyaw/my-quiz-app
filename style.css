@@ -14,11 +14,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 4rem; 
-}
-
-body, html {
-    overflow-y: hidden;
 }
 
 
