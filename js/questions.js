@@ -43,8 +43,8 @@ const questions = [
   },
   {
     question: "What type of girls do I like?",
-    options: ["Dark-skinned ladies", "Fair ladies", "Tomboys", "Quiet girls"],
-    answer: "Fair ladies"
+    options: ["Dark-skinned ladies", "Slim ladies", "Tomboys", "Quiet girls"],
+    answer: "Slim ladies"
   },
   {
     question: "What subject did I enjoy the most in school?",
@@ -64,7 +64,7 @@ const questions = [
   {
     question: "What’s something I secretly enjoy?",
     options: ["Dancing alone", "Watching cartoons", "Singing in the bathroom", "Playing video games"],
-    answer: "Playing video games"
+    answer: "Singing in the bathroom"
   },
   {
     question: "If I could travel anywhere right now, where would I go?",
