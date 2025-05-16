@@ -7,6 +7,10 @@
     font-family: "Montserrat", sans-serif;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     background: #5145BA;
     min-height: 100vh;
