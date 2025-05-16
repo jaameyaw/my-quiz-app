@@ -41,7 +41,6 @@ fisherYatesShuffle(questions);
 function startQuiz() {
     configContainer.style.display = 'none';
     quizContainer.style.display = 'block'; 
-    aboutAuthor.style.display = 'none';
     displayQuestion(counterIndex);
     updateStatus();
 }
@@ -205,7 +204,6 @@ nextQuestion.addEventListener("click", function () {
 tryAgainBtn.addEventListener ("click", function (){
     resultContainer.style.display = 'none';
     configContainer.style.display = 'block';
-    aboutAuthor.style.display = 'block';
     counterIndex = 0;
     questionNumberCounter = 0;
     correctCounter = 0;    
