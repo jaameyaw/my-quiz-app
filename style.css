@@ -96,9 +96,7 @@ body {
 }
 
 /* mobile friendly */
-.config-container,
-.quiz-container,
-.result-container {
+.config-container {
     width: 100%;
     max-width: 480px;
     margin: 0 auto;
@@ -171,8 +169,12 @@ body {
 }
 
 .quiz-container {
-    width: 480px;
+    width: 100%;
+    max-width: 480px;
+    padding: 1rem;
+    margin: 0 auto;
 }
+
 
 .quiz-container .quiz-header {
     display: flex;
@@ -298,8 +300,10 @@ body {
 .result-container {
     display: none;
     text-align: center;
-    padding: 40px;
-    width: 410px;
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
 }
 
 .result-container .result-img {
