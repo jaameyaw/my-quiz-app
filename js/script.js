@@ -132,6 +132,7 @@ for (let i = 0; i < answerOptions.length; i++) {
             this.classList.add('correct');
             icon.style.display = 'inline';
             icon.classList.replace('fa-circle-xmark','fa-circle-check' );
+            correctCounter ++;
         } else {
             this.classList.add('incorrect');
             icon.style.display = 'inline';
@@ -176,7 +177,6 @@ function displayResults() {
     if (score === 1) {
         resultsMsg.innerHTML = `🔥 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. 100%?!  You’re literally my clone! 😍`;
     } else if (score === 0) {
-        // No correct answers
         resultsMsg.innerHTML = `😅 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Ei! You no know me kraa 😭`;
     } else if (score >= 0.8) {
         resultsMsg.innerHTML = `🏆 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. You really know me! I’m impressed. 🙌🏽`;
@@ -187,8 +187,8 @@ function displayResults() {
     } else {
         resultsMsg.innerHTML = `😬 <b>${correctCounter}</b> out of <b>${selectedQuestions.length}</b>. Wow... are we even friends? 😂`;
     }
-}
 
+}
 
 // Move to next question and update status
 nextQuestion.addEventListener("click", function () {
