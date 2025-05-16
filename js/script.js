@@ -18,7 +18,7 @@ let tryAgainBtn = resultContainer.querySelector('button');
 let aboutAuthor = document.querySelector('.about-author');
 
 let counterIndex = 0;
-let questionCounter = 0;
+let questionNumberCounter = 0;
 let correctCounter = 0;
 let selectedQuestions;
 
@@ -97,8 +97,8 @@ questionOption.forEach (button => {
 
 // Render question and options on the screen
 function displayQuestion(index) {
-    questionCounter++
-    questionText.textContent = `${questionCounter}. ${selectedQuestions[index].question}`;
+    questionNumberCounter++
+    questionText.textContent = `${questionNumberCounter}. ${selectedQuestions[index].question}`;
 
 
     for (i = 0; i<answerOptions.length; i++) {
@@ -207,7 +207,7 @@ tryAgainBtn.addEventListener ("click", function (){
     configContainer.style.display = 'block';
     aboutAuthor.style.display = 'block';
     counterIndex = 0;
-    questionCounter = 0;
+    questionNumberCounter = 0;
     correctCounter = 0;    
     fisherYatesShuffle(questions);
     disableButton(startBlocker);
