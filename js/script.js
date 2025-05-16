@@ -13,9 +13,15 @@ let questionText = document.querySelector('.question-text');
 let answerOptions = document.querySelectorAll('.answer-option');
 let nextQuestion = document.querySelector('.next-question-btn');
 let nextBlocker = document.querySelector('#next-blocker');
+let resultsContainer = document.querySelector('.result-container')
+let tryAgainBtn = resultContainer.querySelector('button');
 let aboutAuthor = document.querySelector('.about-author');
+
+let counterIndex = 0;
 let questionCounter = 0;
+let correctCounter = 0;
 let selectedQuestions;
+
 // Shuffles the questions array randomly using the Fisher-Yates algorithm.
 function fisherYatesShuffle(questionsArr) {
 
@@ -30,27 +36,30 @@ function fisherYatesShuffle(questionsArr) {
 // Call the function to shuffle the questions array.
 fisherYatesShuffle(questions);
 
+
 // Transition from start screen to quiz
-function starttoNextPage() {
+function startQuiz() {
     configContainer.style.display = 'none';
-    quizContainer.style.display = 'block';
+    quizContainer.style.display = 'block'; 
     aboutAuthor.style.display = 'none';
     displayQuestion(counterIndex);
     updateStatus();
 }
 
-startBtn.addEventListener("click", starttoNextPage);
-// Intercept click if blocked
-startBlocker.addEventListener("click", function() {
+startBtn.addEventListener("click", startQuiz)
+
+
+// Fake Disabled Button Using Overlay and display tooltip
+startBlocker.addEventListener("click", fakeDisableBtn);
+
+function fakeDisableBtn () {
     tooltip.style.display = 'block';
     setTimeout(() => {
         tooltip.style.display = 'none';
     }, 2000);
-});
+}
 
 
-function enableStartButton() {
-    startBlocker.style.display = 'none';
 // When question count is selected, remove the blocker
 function enableButton(blockerName) {
     blockerName.style.display = 'none';
@@ -61,25 +70,26 @@ function disableButton(NameOfBlocker) {
     NameOfBlocker.style.display = 'block';
 }
 
+
+// Highlight selected button and slice questions accordingly
 questionOption.forEach (button => {
     button.addEventListener("click", function (){
         let selectedOption = button.textContent;
-
         questionOption.forEach(btn => {
             btn.classList.remove('active');
         });    
+
+        button.classList.add('active');
         
         if (selectedOption === '5') {
             selectedQuestions = questions.slice(0, 5);
-            button.classList.add ('active');
         } else if (selectedOption === '10') {
             selectedQuestions = questions.slice(0, 10);
-            button.classList.add ('active');
         } else {
             selectedQuestions = questions.slice(0);
-            button.classList.add ('active');
         }
-        enableStartButton();
+        
+        enableButton(startBlocker);
     })
 })
 
@@ -185,8 +195,7 @@ nextQuestion.addEventListener("click", function () {
     counterIndex++;
     if (counterIndex < selectedQuestions.length) {
         displayQuestion(counterIndex);
-        checkAnswer();
-        updateStatus();
+        updateStatus(); 
     } else {
         displayResults();
     }
@@ -198,15 +207,23 @@ tryAgainBtn.addEventListener ("click", function (){
     configContainer.style.display = 'block';
     aboutAuthor.style.display = 'block';
     counterIndex = 0;
-    correctCounter = 0;        
-    nextQuestion.disabled = true;
-    fisherYatesShuffle(questions)
-    startBlocker.style.display = 'block';
     questionCounter = 0;
+    correctCounter = 0;    
+    fisherYatesShuffle(questions);
+    disableButton(startBlocker);
+
     questionOption.forEach(btn => {
         btn.classList.remove('active');
     });      
 });
+
+
+// Update question number display
+function updateStatus() {
+    let questionStatus = document.querySelector('.question-status');
+    questionStatus.innerHTML = `<b>${counterIndex + 1}</b> of <b>${selectedQuestions.length}</b> Questions`;
+}
+
 // handling the keyboard keys (Enter)
 document.addEventListener('keydown', function (e) {
     // START QUIZ: Enter on config screen
