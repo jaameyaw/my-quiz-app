@@ -45,6 +45,7 @@ body {
     font-size: 1.31rem;
 }
 
+
 .config-container .config-option {
     margin-top: 25px;
 }
@@ -221,7 +222,6 @@ body {
     margin: -4px -3px -4px 12px;
     font-size: 22px;
 }
-
 
 
 .quiz-content .answer-option.correct{
