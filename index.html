@@ -12,100 +12,81 @@
     <link rel="icon" type="image/x-icon" href="img/favicon.png">
 </head>
 <body>
+    <!--   Quiz Configuration Container -->
+    <div class="config-container">
+        <h2 class="config-title">How Well Do You Know Me?</h2>
 
-    <div class="main-container">
-
-     <!--   Quiz Configuration Container -->
-        <div class="config-container">
-            <h2 class="config-title">How Well Do You Know Me?</h2>
-
-            <div class="config-option">
-                <h4 class="option-title">No. of Questions</h4>
-                <div class="questions-options">
-                    <button class="question-option">5</button>
-                    <button class="question-option">10</button>
-                    <button class="question-option">15</button>
-                </div>
+        <div class="config-option">
+            <h4 class="option-title">No. of Questions</h4>
+            <div class="questions-options">
+                <button class="question-option">5</button>
+                <button class="question-option">10</button>
+                <button class="question-option">15</button>
             </div>
-            
-            <div class="start-wrapper">
-                <button class="start-quiz-btn" aria-label="Start the quiz">Start Quiz</button>
-                <div id="tooltip" class="tooltip">Please choose the no. of questions</div>
-                <!-- Fake Disabled Button Using Overlay -->
-                <div id ="start-blocker" class = "click-blocker"></div>
-            </div>
-            
         </div>
         
-        <!-- Quiz Container-->
-        <div class="quiz-container">
-            <header class="quiz-header">
-                <h2 class="quiz-title">Quiz Application</h2>
-            </header>
+        <div class="start-wrapper">
+            <button class="start-quiz-btn" aria-label="Start the quiz">Start Quiz</button>
+            <div id="tooltip" class="tooltip">Please choose the no. of questions</div>
+            <!-- Fake Disabled Button Using Overlay -->
+            <div id ="start-blocker" class = "click-blocker"></div>
+        </div>
+        
+    </div>
+    
+    <!-- Quiz Container-->
+    <div class="quiz-container">
+        <header class="quiz-header">
+            <h2 class="quiz-title">Quiz Application</h2>
+        </header>
 
-            <div class="quiz-content">
-                <h1 class="question-text"></h1>
+        <div class="quiz-content">
+            <h1 class="question-text"></h1>
 
-                <ul class="answer-options">
-                    <li class="answer-option">
-                        <p></p>
-                        <i class="fa-regular fa-circle-xmark"></i>
-                    </li>   
-                    
-                    <li class="answer-option">
-                        <p></p>
-                        <i class="fa-regular fa-circle-xmark"></i>
-                    </li> 
+            <ul class="answer-options">
+                <li class="answer-option">
+                    <p></p>
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </li>   
+                
+                <li class="answer-option">
+                    <p></p>
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </li> 
 
-                    <li class="answer-option">
-                        <p></p>
-                        <i class="fa-regular fa-circle-xmark"></i>
-                    </li> 
+                <li class="answer-option">
+                    <p></p>
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </li> 
 
-                    <li class="answer-option">
-                        <p></p>
-                        <i class="fa-regular fa-circle-check"></i>
-                    </li> 
-                </ul>
-            </div>
-
-            <div class="quiz-footer">
-                <p class="question-status"><b>1</b> of <b>5</b> Questions</p>
-
-                <div class="nextBtn-wrapper">
-                    <button class="next-question-btn">
-                    Next <span><i class="fa-solid fa-arrow-right"></i></span>
-                    </button>
-                    <div id="next-tooltip" class="next-tooltip">Please select an answer</div>
-                    <!-- Fake Disabled Button Using Overlay -->
-                    <div id= "next-blocker" class="next-click-blocker"></div>
-                </div>
-            </div>
+                <li class="answer-option">
+                    <p></p>
+                    <i class="fa-regular fa-circle-check"></i>
+                </li> 
+            </ul>
         </div>
 
+        <div class="quiz-footer">
+            <p class="question-status"><b>1</b> of <b>5</b> Questions</p>
 
-        <!-- Result Container-->
-        <div class="result-container">
-            <img src="img/quiz-over.png" alt="congratulations emoji" class="Result-img">
-            <h2 class="result-title">Quiz Completed!</h2>
-            <p class="result-message"><b>3</b> out of <b>5</b></p>
-            <button class="try-again-btn">Try Again</button>
-        </div>
-
-        <!--about the author-->
-        <div class="about-author">
-            <div class="author-socials">
-                <a href="https://www.instagram.com/johnson_ameyaw" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://github.com/jaameyaw" target="_blank"><i class="fa-brands fa-github"></i></a>
-            </div>
-
-            <div class="author-name">
-                <!-- Credit line -->
-                <p>Created by Johnson Addo Ameyaw.</p>
+            <div class="nextBtn-wrapper">
+                <button class="next-question-btn">
+                Next <span><i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+                <div id="next-tooltip" class="next-tooltip">Please select an answer</div>
+                <!-- Fake Disabled Button Using Overlay -->
+                <div id= "next-blocker" class="next-click-blocker"></div>
             </div>
         </div>
+    </div>
 
+
+    <!-- Result Container-->
+    <div class="result-container">
+        <img src="img/quiz-over.png" alt="congratulations emoji" class="Result-img">
+        <h2 class="result-title">Quiz Completed!</h2>
+        <p class="result-message"><b>3</b> out of <b>5</b></p>
+        <button class="try-again-btn">Try Again</button>
     </div>
    
 
