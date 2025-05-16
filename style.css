@@ -17,6 +17,10 @@ body {
     padding-top: 4rem; 
 }
 
+body, html {
+    overflow-y: hidden;
+}
+
 
 :where(.config-container, .quiz-container, .result-container) {
     /* display: none; */
@@ -264,7 +268,6 @@ body {
     box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
     animation: fadeInOut 2s forwards;
 }
-
 
 
 .next-click-blocker {
